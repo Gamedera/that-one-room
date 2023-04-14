@@ -7,19 +7,23 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float speed = 5f;
     [SerializeField] private float rotationDamping = 10f;
 
-    private Vector2 moveInput;
+    private Vector2 movementInput;
     private Vector3 movement;
     private float verticalVelocity;
+    private Transform mainCameraTransform;
 
     private CharacterController characterController;
 
     private void Awake() 
     {
         characterController = GetComponent<CharacterController>();
+        mainCameraTransform = Camera.main.transform;
     }
 
     private void Update()
     {
+        movement = CalculatePlayerMovementFromInput();
+        
         ApplyGravity();
 
         ApplyRotation();
@@ -34,7 +38,7 @@ public class PlayerController : MonoBehaviour
 
     private void ApplyRotation()
     {
-        if (moveInput == Vector2.zero) return;
+        if (movementInput == Vector2.zero) return;
 
         Vector3 horizontalMovement = new Vector3(movement.x, 0, movement.z);
 
@@ -57,8 +61,22 @@ public class PlayerController : MonoBehaviour
 
     private void OnMove(InputValue value)
     {
-        moveInput = value.Get<Vector2>();
-        movement = new Vector3(moveInput.x, 0, moveInput.y);
-        movement = movement.normalized;
+        movementInput = value.Get<Vector2>();
+        // movement = new Vector3(movementInput.x, 0, movementInput.y);
+        // movement = movement.normalized;
+    }
+
+    private Vector3 CalculatePlayerMovementFromInput()
+    {
+        Vector3 forward = mainCameraTransform.forward;
+        Vector3 right = mainCameraTransform.right;
+
+        forward.y = 0;
+        right.y = 0;
+
+        forward.Normalize();
+        right.Normalize();
+
+        return (forward * movementInput.y) + (right * movementInput.x);
     }
 }
