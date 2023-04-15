@@ -102,7 +102,7 @@ Material:
     - _CustomNormals: 0
     - _Cutoff: 0.5
     - _DepthOffsetFactor: 0
-    - _DepthOffsetUnits: 0
+    - _DepthOffsetUnits: 10
     - _DetailAlbedoMapScale: 1
     - _DetailNormalMapScale: 1
     - _DstBlend: 0
@@ -115,7 +115,7 @@ Material:
     - _Parallax: 0.005
     - _QueueOffset: 0
     - _ReceiveShadows: 1
-    - _Scale: 0.58
+    - _Scale: 0.05
     - _Smoothness: 0.5
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
