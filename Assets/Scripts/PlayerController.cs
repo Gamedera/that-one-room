@@ -1,9 +1,12 @@
+using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
 [RequireComponent(typeof(CharacterController))]
 public class PlayerController : MonoBehaviour
 {
+    public event Action InteractEvent;
+
     [SerializeField] private float speed = 5f;
     [SerializeField] private float jumpPower = 10f;
     [SerializeField] private float rotationDamping = 10f;
@@ -87,5 +90,10 @@ public class PlayerController : MonoBehaviour
         right.Normalize();
 
         return (forward * movementInput.y) + (right * movementInput.x);
+    }
+
+    private void OnInteract()
+    {
+        InteractEvent.Invoke();
     }
 }
