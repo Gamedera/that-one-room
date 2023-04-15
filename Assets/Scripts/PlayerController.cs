@@ -5,6 +5,7 @@ using UnityEngine.InputSystem;
 public class PlayerController : MonoBehaviour
 {
     [SerializeField] private float speed = 5f;
+    [SerializeField] private float jumpPower = 10f;
     [SerializeField] private float rotationDamping = 10f;
 
     private Vector2 movementInput;
@@ -64,6 +65,14 @@ public class PlayerController : MonoBehaviour
         movementInput = value.Get<Vector2>();
         // movement = new Vector3(movementInput.x, 0, movementInput.y);
         // movement = movement.normalized;
+    }
+
+    private void OnJump()
+    {
+        if (characterController.isGrounded)
+        {
+            verticalVelocity += jumpPower;
+        }
     }
 
     private Vector3 CalculatePlayerMovementFromInput()
