@@ -110,6 +110,7 @@ GameObject:
   - component: {fileID: 2526245731802921182}
   - component: {fileID: 2980971586192537951}
   - component: {fileID: 8891536724274508144}
+  - component: {fileID: 1870497341}
   m_Layer: 3
   m_Name: BedCover
   m_TagString: Interactable
@@ -165,6 +166,19 @@ MonoBehaviour:
   isClean: 0
   cleanObject: {fileID: 996744168934402067}
   dirtyObject: {fileID: 8215099633187141572}
+--- !u!65 &1870497341
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6935895293963709330}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 6.3609905, y: 0.7650628, z: 8.304457}
+  m_Center: {x: 2.6804953, y: -0.117468596, z: -1.2813733}
 --- !u!1 &8215099633187141572
 GameObject:
   m_ObjectHideFlags: 0
@@ -176,6 +190,7 @@ GameObject:
   - component: {fileID: 8003663429388336608}
   - component: {fileID: 7298950731539222739}
   - component: {fileID: 6052555346815534011}
+  - component: {fileID: 3247718028157897030}
   m_Layer: 3
   m_Name: CoverDirty
   m_TagString: Untagged
@@ -249,3 +264,17 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &3247718028157897030
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8215099633187141572}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -4612615737123249781, guid: 399a2dcf477c74640acca2403bc49b23, type: 3}
