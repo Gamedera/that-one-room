@@ -1,10 +1,8 @@
 using UnityEngine;
 
-public class StateChanger : MonoBehaviour
+public abstract class StateChanger : MonoBehaviour
 {
     [SerializeField] public bool isClean;
-    [SerializeField] private GameObject cleanObject;
-    [SerializeField] private GameObject dirtyObject;
 
     private MeshRenderer meshRenderer;
     private int originalOutlineLayer;
@@ -17,22 +15,7 @@ public class StateChanger : MonoBehaviour
         selectedOutlineLayer = LayerMask.NameToLayer("Selected Outline");
     }
 
-    public void ChangeState()
-    {
-        Debug.Log("State changed on " + gameObject.name);
-        isClean = !isClean;
-
-        if (isClean)
-        {
-            cleanObject.SetActive(true);
-            dirtyObject.SetActive(false);
-        }
-        else
-        {
-            dirtyObject.SetActive(true);
-            cleanObject.SetActive(false);
-        }
-    }
+    public abstract void ChangeState();
 
     public void ChangeToSelectableOutline()
     {

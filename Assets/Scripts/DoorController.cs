@@ -29,7 +29,7 @@ public class DoorController : StateChanger
     }
 
     // Update is called once per frame
-    void FixedUpdate(){
+    void FixedUpdate() {
         // every frame, move the door towards the Open/Closed door
         var target = isClean ? doorClosed : doorOpen;
         // these actually do the moving/rotating
@@ -37,9 +37,9 @@ public class DoorController : StateChanger
         door.transform.rotation = Quaternion.RotateTowards(door.transform.rotation, target.transform.rotation, rotationSpeed * Time.deltaTime);
     }
 
-    new public void ChangeState()
+    public override void ChangeState()
     {
-        Debug.Log("State changed on " + gameObject.name);
+        Debug.Log("Opening doooooooor " + gameObject.name);
         isClean = !isClean;
     }
 }
