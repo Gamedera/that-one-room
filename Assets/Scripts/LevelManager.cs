@@ -4,10 +4,18 @@ using TMPro;
 
 public class LevelManager : MonoBehaviour
 {
-    [SerializeField] private int numberOfInteractableObjects;
     [SerializeField] private float remainingTime = 30f;
     [SerializeField] private TextMeshProUGUI timerText;
     [SerializeField] private TextMeshProUGUI objectCounterText;
+
+    private int numberOfInteractableObjects;
+    private GameObject[] interactableObjects;
+
+    private void Start() 
+    {
+        interactableObjects = GameObject.FindGameObjectsWithTag("Interactable");
+        numberOfInteractableObjects = interactableObjects.Length;
+    }
 
     private void Update()
     {
@@ -17,8 +25,6 @@ public class LevelManager : MonoBehaviour
 
     private void CountCleanObjects()
     {
-        GameObject[] interactableObjects = GameObject.FindGameObjectsWithTag("Interactable");
-
         int counter = 0;
 
         foreach (GameObject interactableObject in interactableObjects)
