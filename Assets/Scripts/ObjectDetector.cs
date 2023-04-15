@@ -39,6 +39,20 @@ public class ObjectDetector : MonoBehaviour
         {
             interactText.gameObject.SetActive(true);
         }
+
+        if (detectedObjects.Count > 1)
+        {
+            GameObject closestObject = GetClosestDetectedObject();
+
+            closestObject.GetComponent<StateChanger>().ChangeToSelectableOutline();
+
+            foreach (GameObject detectedObject in detectedObjects)
+            {
+                if (detectedObject == closestObject) continue;
+
+                detectedObject.GetComponent<StateChanger>().ChangeToOriginalOutline();
+            }
+        }
     }
 
     private void OnTriggerEnter(Collider other) 
@@ -47,7 +61,9 @@ public class ObjectDetector : MonoBehaviour
         {
             detectedObjects.Add(other.gameObject);
 
-            other.gameObject.GetComponent<StateChanger>().ChangeToSelectableOutline();
+            GameObject closestObject = GetClosestDetectedObject();
+
+            closestObject.GetComponent<StateChanger>().ChangeToSelectableOutline();
 
             // other.gameObject.layer = selectedOutlineLayer;
 
@@ -79,8 +95,32 @@ public class ObjectDetector : MonoBehaviour
     {
         if (detectedObjects.Count == 0) return;
 
-        GameObject detectedObject = detectedObjects[0];
-        Debug.Log("Interacting with " + detectedObject.gameObject.name);
-        detectedObject.GetComponent<StateChanger>().ChangeState();
+        // GameObject detectedObject = detectedObjects[0];
+        // Debug.Log("Interacting with " + detectedObject.gameObject.name);
+        // detectedObject.GetComponent<StateChanger>().ChangeState();
+
+        GameObject closestObject = GetClosestDetectedObject();
+
+        closestObject.GetComponent<StateChanger>().ChangeState();
+    }
+
+    private GameObject GetClosestDetectedObject()
+    {
+        float nearestDistance = float.PositiveInfinity;
+        GameObject closestObject = null;
+
+        foreach (GameObject detectedObject in detectedObjects)
+        {
+            float distance = Vector3.Distance(transform.position, detectedObject.transform.position);
+            Debug.Log("Distance from " + detectedObject.name + " is " + distance);
+
+            if (distance < nearestDistance)
+            {
+                nearestDistance = distance;
+                closestObject = detectedObject;
+            }
+        }
+
+        return closestObject;
     }
 }
