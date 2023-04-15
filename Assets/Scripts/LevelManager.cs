@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using TMPro;
 
 public class LevelManager : MonoBehaviour
@@ -7,8 +8,6 @@ public class LevelManager : MonoBehaviour
     [SerializeField] private float remainingTime = 30f;
     [SerializeField] private TextMeshProUGUI timerText;
     [SerializeField] private TextMeshProUGUI objectCounterText;
-
-    //private int numberOfCleanObjects;
 
     private void Update()
     {
@@ -43,8 +42,14 @@ public class LevelManager : MonoBehaviour
         if (remainingTime <= 0)
         {
             remainingTime = 0;
+            LoadEndScene();
         }
 
         timerText.text = Mathf.FloorToInt(remainingTime).ToString();
+    }
+
+    private void LoadEndScene()
+    {
+        SceneManager.LoadScene("EndScene");
     }
 }

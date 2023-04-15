@@ -7,4 +7,14 @@ public class MenuManager : MonoBehaviour
     {
         SceneManager.LoadScene("MVATestScene");
     }
+
+    public void LoadMainMenu()
+    {
+        SceneManager.LoadScene("MainMenu");
+    }
+
+    public void LoadEndScene()
+    {
+        SceneManager.LoadScene("EndScene");
+    }
 }
