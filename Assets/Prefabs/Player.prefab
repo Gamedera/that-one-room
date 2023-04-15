@@ -913,6 +913,7 @@ MonoBehaviour:
   jumpPower: 3
   rotationDamping: 10
   jumpButtonGracePeriod: 0.2
+  animationDampTime: 0.1
 --- !u!95 &1054590801
 Animator:
   serializedVersion: 5

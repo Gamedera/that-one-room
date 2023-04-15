@@ -11,6 +11,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float jumpPower = 10f;
     [SerializeField] private float rotationDamping = 10f;
     [SerializeField] private float jumpButtonGracePeriod;
+    [SerializeField] private float animationDampTime = 0.05f;
 
     private Vector2 movementInput;
     private Vector3 movement;
@@ -88,7 +89,7 @@ public class PlayerController : MonoBehaviour
             inputMagnitude = Mathf.Clamp01(movement.magnitude);
         }
 
-        animator.SetFloat("Input Magnitude", inputMagnitude);
+        animator.SetFloat("Input Magnitude", inputMagnitude, animationDampTime, Time.deltaTime);
     }
 
     private void OnMove(InputValue value)
@@ -99,11 +100,6 @@ public class PlayerController : MonoBehaviour
     private void OnJump()
     {
         jumpButtonPressedTime = Time.time;
-
-        // if (characterController.isGrounded)
-        // {
-        //     verticalVelocity += jumpPower;
-        // }
 
         if (Time.time - lastGroundedTime <= jumpButtonGracePeriod)
         {
