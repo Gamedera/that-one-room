@@ -1,9 +1,12 @@
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
+
 
 public class ObjectDetector : MonoBehaviour
 {
     [SerializeField] private PlayerController playerController;
+    [SerializeField] TextMeshProUGUI interactText;
 
     private List<GameObject> detectedObjects = new List<GameObject>();
 
@@ -19,7 +22,14 @@ public class ObjectDetector : MonoBehaviour
 
     private void Update() 
     {
-        //Debug.Log(detectedObjects.Count);
+        if (detectedObjects.Count == 0)
+        {
+            interactText.gameObject.SetActive(false);
+        }
+        else
+        {
+            interactText.gameObject.SetActive(true);
+        }
     }
 
     private void OnTriggerEnter(Collider other) 

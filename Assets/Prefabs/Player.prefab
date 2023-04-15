@@ -59,6 +59,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerController: {fileID: 6421188126788439041}
+  interactText: {fileID: 0}
 --- !u!1 &6421188126747391587
 GameObject:
   m_ObjectHideFlags: 0

@@ -66,8 +66,6 @@ public class PlayerController : MonoBehaviour
     private void OnMove(InputValue value)
     {
         movementInput = value.Get<Vector2>();
-        // movement = new Vector3(movementInput.x, 0, movementInput.y);
-        // movement = movement.normalized;
     }
 
     private void OnJump()
