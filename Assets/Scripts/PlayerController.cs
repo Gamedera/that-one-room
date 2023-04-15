@@ -10,14 +10,17 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float speed = 5f;
     [SerializeField] private float jumpPower = 10f;
     [SerializeField] private float rotationDamping = 10f;
+    [SerializeField] private float jumpButtonGracePeriod;
 
     private Vector2 movementInput;
     private Vector3 movement;
     private float verticalVelocity;
-    private Transform mainCameraTransform;
+    private float? lastGroundedTime;
+    private float? jumpButtonPressedTime;
 
     private CharacterController characterController;
     private Animator animator;
+    private Transform mainCameraTransform;
 
     private void Awake() 
     {
@@ -28,6 +31,11 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
+        if (characterController.isGrounded)
+        {
+            lastGroundedTime = Time.time;
+        }
+
         movement = CalculatePlayerMovementFromInput();
         
         ApplyGravity();
@@ -90,9 +98,21 @@ public class PlayerController : MonoBehaviour
 
     private void OnJump()
     {
-        if (characterController.isGrounded)
+        jumpButtonPressedTime = Time.time;
+
+        // if (characterController.isGrounded)
+        // {
+        //     verticalVelocity += jumpPower;
+        // }
+
+        if (Time.time - lastGroundedTime <= jumpButtonGracePeriod)
         {
-            verticalVelocity += jumpPower;
+            verticalVelocity = 0;
+
+            if (Time.time - jumpButtonPressedTime <= jumpButtonGracePeriod)
+            {
+                verticalVelocity += jumpPower;
+            }
         }
     }
 
