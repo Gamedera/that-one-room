@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "com.deltation.toon-shader": "https://github.com/Delt06/urp-toon-shader.git?path=Packages/com.deltation.toon-shader",
     "com.unity.cinemachine": "2.8.9",
     "com.unity.ide.vscode": "1.2.5",
     "com.unity.inputsystem": "1.5.1",
