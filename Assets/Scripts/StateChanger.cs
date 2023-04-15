@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class StateChanger : MonoBehaviour
 {
-    [SerializeField] private bool isClean;
+    [SerializeField] public bool isClean;
     [SerializeField] private Material cleanMaterial;
     [SerializeField] private Material dirtyMaterial;
 
