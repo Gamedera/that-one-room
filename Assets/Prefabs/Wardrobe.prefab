@@ -146,7 +146,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40437f35d077d490f9433cb68e7a54ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isClean: 1
+  isClean: 0
   cleanObject: {fileID: 0}
   dirtyObject: {fileID: 0}
   door: {fileID: 4112664285288891363}
