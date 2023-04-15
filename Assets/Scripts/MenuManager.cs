@@ -5,7 +5,7 @@ public class MenuManager : MonoBehaviour
 {
     public void StartGame()
     {
-        SceneManager.LoadScene("MVATestScene");
+        SceneManager.LoadScene("FinalScene");
     }
 
     public void LoadMainMenu()
