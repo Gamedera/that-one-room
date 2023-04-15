@@ -910,8 +910,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 5
-  jumpPower: 4
+  jumpPower: 3
   rotationDamping: 10
+  jumpButtonGracePeriod: 0.2
 --- !u!95 &1054590801
 Animator:
   serializedVersion: 5
