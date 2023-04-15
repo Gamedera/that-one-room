@@ -10,6 +10,9 @@ public class ObjectDetector : MonoBehaviour
 
     private List<GameObject> detectedObjects = new List<GameObject>();
 
+    private int selectedOutlineLayer;
+    private int outlineLayer;
+
     private void OnEnable() 
     {
         playerController.InteractEvent += OnInteract;
@@ -18,6 +21,12 @@ public class ObjectDetector : MonoBehaviour
     private void OnDisable()
     {
         playerController.InteractEvent -= OnInteract;
+    }
+
+    private void Awake() 
+    {
+        selectedOutlineLayer = LayerMask.NameToLayer("Selected Outline");
+        outlineLayer = LayerMask.NameToLayer("Outline");
     }
 
     private void Update() 
@@ -37,6 +46,15 @@ public class ObjectDetector : MonoBehaviour
         if (other.gameObject.CompareTag("Interactable"))
         {
             detectedObjects.Add(other.gameObject);
+
+            other.gameObject.GetComponent<StateChanger>().ChangeToSelectableOutline();
+
+            // other.gameObject.layer = selectedOutlineLayer;
+
+            // foreach (Transform child in other.gameObject.transform)
+            // {
+            //      child.gameObject.layer = selectedOutlineLayer;
+            // }
         }
     }
 
@@ -45,6 +63,15 @@ public class ObjectDetector : MonoBehaviour
         if (other.gameObject.CompareTag("Interactable"))
         {
             detectedObjects.Remove(other.gameObject);
+
+            other.gameObject.GetComponent<StateChanger>().ChangeToOriginalOutline();
+
+            // other.gameObject.layer = outlineLayer;
+
+            // foreach (Transform child in other.gameObject.transform)
+            // {
+            //      child.gameObject.layer = outlineLayer;
+            // }
         }
     }
 
