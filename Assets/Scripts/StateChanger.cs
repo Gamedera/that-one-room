@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class StateChanger : MonoBehaviour
 {
-    [SerializeField] private bool isClean = true;
+    [SerializeField] private bool isClean;
     [SerializeField] private Material cleanMaterial;
     [SerializeField] private Material dirtyMaterial;
 
@@ -27,4 +27,10 @@ public class StateChanger : MonoBehaviour
             meshRenderer.material = dirtyMaterial;
         }
     }
+
+    public bool IsClean()
+    {
+        return isClean;
+    }
+
 }
