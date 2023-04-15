@@ -21,7 +21,9 @@ public abstract class StateChanger : MonoBehaviour
     {
         gameObject.layer = selectedOutlineLayer;
 
-        foreach (Transform child in gameObject.transform)
+        Transform[] allChildren = GetComponentsInChildren<Transform>();
+
+        foreach (Transform child in allChildren)
         {
                 child.gameObject.layer = selectedOutlineLayer;
         }
@@ -31,7 +33,9 @@ public abstract class StateChanger : MonoBehaviour
     {
         gameObject.layer = originalOutlineLayer;
 
-        foreach (Transform child in gameObject.transform)
+        Transform[] allChildren = GetComponentsInChildren<Transform>();
+
+        foreach (Transform child in allChildren)
         {
                 child.gameObject.layer = originalOutlineLayer;
         }
