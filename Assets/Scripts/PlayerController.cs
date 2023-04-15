@@ -17,10 +17,12 @@ public class PlayerController : MonoBehaviour
     private Transform mainCameraTransform;
 
     private CharacterController characterController;
+    private Animator animator;
 
     private void Awake() 
     {
         characterController = GetComponent<CharacterController>();
+        animator = GetComponent<Animator>();
         mainCameraTransform = Camera.main.transform;
     }
 
@@ -33,6 +35,8 @@ public class PlayerController : MonoBehaviour
         ApplyRotation();
 
         ApplyMovement();
+
+        ApplyMovementAnimation();
     }
 
     private void ApplyMovement()
@@ -61,6 +65,22 @@ public class PlayerController : MonoBehaviour
         }
 
         movement.y = verticalVelocity;
+    }
+
+    private void ApplyMovementAnimation()
+    {
+        float inputMagnitude = 0;
+
+        if (movementInput == Vector2.zero)
+        {
+            inputMagnitude = 0;
+        }
+        else
+        {
+            inputMagnitude = Mathf.Clamp01(movement.magnitude);
+        }
+
+        animator.SetFloat("Input Magnitude", inputMagnitude);
     }
 
     private void OnMove(InputValue value)
