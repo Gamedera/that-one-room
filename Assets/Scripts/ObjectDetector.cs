@@ -40,6 +40,11 @@ public class ObjectDetector : MonoBehaviour
             interactText.gameObject.SetActive(true);
         }
 
+        if (detectedObjects.Count == 1)
+        {
+            detectedObjects[0].GetComponent<StateChanger>().ChangeToSelectableOutline();
+        } 
+        
         if (detectedObjects.Count > 1)
         {
             GameObject closestObject = GetClosestDetectedObject();
