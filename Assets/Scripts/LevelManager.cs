@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using TMPro;
@@ -8,9 +9,12 @@ public class LevelManager : MonoBehaviour
     [SerializeField] private float remainingTime = 30f;
     [SerializeField] private int goodEndingThreshold = 10;
     [SerializeField] private int evilEndingThreshold = 3;
+    [SerializeField] private float loadSceneDelay = 1f;
+    
     [SerializeField] private TextMeshProUGUI timerText;
     [SerializeField] private TextMeshProUGUI objectCounterText;
     [SerializeField] private Slider slider;
+    [SerializeField] private PlayerController playerController;
 
     private int numberOfInteractableObjects;
     private GameObject[] interactableObjects;
@@ -102,16 +106,28 @@ public class LevelManager : MonoBehaviour
 
     private void LoadGoodEndScene()
     {
-        SceneManager.LoadScene(GoodEndScene);
+        //SceneManager.LoadScene(GoodEndScene);
+        StartCoroutine(LoadSceneAfterDelay(GoodEndScene));
     }
 
     private void LoadEvilEndScene()
     {
-        SceneManager.LoadScene(EvilEndScene);
+        //SceneManager.LoadScene(EvilEndScene);
+        StartCoroutine(LoadSceneAfterDelay(EvilEndScene));
     }
 
     private void LoadMediumEndScene()
     {
-        SceneManager.LoadScene(MediumEndScene);
+        //SceneManager.LoadScene(MediumEndScene);
+        StartCoroutine(LoadSceneAfterDelay(MediumEndScene));
+    }
+
+    private IEnumerator LoadSceneAfterDelay(string sceneName)
+    {
+        playerController.DisableControls();
+
+        yield return new WaitForSecondsRealtime(loadSceneDelay);
+
+        SceneManager.LoadScene(sceneName);
     }
 }

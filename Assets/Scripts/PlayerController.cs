@@ -19,6 +19,7 @@ public class PlayerController : MonoBehaviour
     private float verticalVelocity;
     private float? lastGroundedTime;
     private float? jumpButtonPressedTime;
+    private bool areControlsDisabled = false;
 
     private CharacterController characterController;
     private Animator animator;
@@ -95,11 +96,23 @@ public class PlayerController : MonoBehaviour
 
     private void OnMove(InputValue value)
     {
+        if (areControlsDisabled)
+        {
+            movementInput = Vector2.zero;
+            return;
+        }
+
         movementInput = value.Get<Vector2>();
     }
 
     private void OnJump()
     {
+        if (areControlsDisabled)
+        {
+            verticalVelocity = 0;
+            return;
+        }
+
         jumpButtonPressedTime = Time.time;
 
         if (Time.time - lastGroundedTime <= jumpButtonGracePeriod)
@@ -135,5 +148,10 @@ public class PlayerController : MonoBehaviour
     public void PlayInteractSound()
     {
         interactSoundEffect.Play();
+    }
+
+    public void DisableControls()
+    {
+        areControlsDisabled = true;
     }
 }
