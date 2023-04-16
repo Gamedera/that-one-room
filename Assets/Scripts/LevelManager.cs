@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using TMPro;
+using UnityEngine.UI;
 
 public class LevelManager : MonoBehaviour
 {
@@ -9,6 +10,7 @@ public class LevelManager : MonoBehaviour
     [SerializeField] private int evilEndingThreshold = 3;
     [SerializeField] private TextMeshProUGUI timerText;
     [SerializeField] private TextMeshProUGUI objectCounterText;
+    [SerializeField] private Slider slider;
 
     private int numberOfInteractableObjects;
     private GameObject[] interactableObjects;
@@ -22,6 +24,7 @@ public class LevelManager : MonoBehaviour
     {
         interactableObjects = GameObject.FindGameObjectsWithTag(InteractableTag);
         numberOfInteractableObjects = interactableObjects.Length;
+        slider.maxValue = numberOfInteractableObjects;
     }
 
     private void Update()
@@ -56,6 +59,8 @@ public class LevelManager : MonoBehaviour
         }
 
         objectCounterText.text = counter + "/" + numberOfInteractableObjects;
+        slider.value = counter;
+
 
         return counter;
     }

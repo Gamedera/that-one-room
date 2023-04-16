@@ -44,7 +44,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 68745650a00526149952bcd5bf70b210, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  numberOfInteractableObjects: 3
-  remainingTime: 30
+  remainingTime: 300
+  goodEndingThreshold: 10
+  evilEndingThreshold: 3
   timerText: {fileID: 0}
   objectCounterText: {fileID: 0}
+  slider: {fileID: 0}
