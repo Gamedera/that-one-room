@@ -44,9 +44,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 68745650a00526149952bcd5bf70b210, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  remainingTime: 300
+  remainingTime: 120
   goodEndingThreshold: 10
   evilEndingThreshold: 3
+  loadSceneDelay: 1.5
   timerText: {fileID: 0}
-  objectCounterText: {fileID: 0}
+  goodCounterText: {fileID: 0}
+  evilCounterText: {fileID: 0}
   slider: {fileID: 0}
+  playerController: {fileID: 0}
