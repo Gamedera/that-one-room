@@ -401,8 +401,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isClean: 1
-  cleanObject: {fileID: 0}
-  dirtyObject: {fileID: 0}
   door: {fileID: 6902465854933523382}
   doorOpen: {fileID: 7700598502635897161}
   moveSpeed: 3
@@ -485,8 +483,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isClean: 1
-  cleanObject: {fileID: 0}
-  dirtyObject: {fileID: 0}
   door: {fileID: 1554451077599063054}
   doorOpen: {fileID: 8058041138131336041}
   moveSpeed: 3

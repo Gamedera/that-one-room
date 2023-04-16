@@ -183,7 +183,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e19e753557f854b01864ed51dc065223, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isClean: 1
+  isClean: 0
   cleanObject: {fileID: 7174072733207473528}
   dirtyObject: {fileID: 2063643801808670410}
   cleanPosition: {fileID: 1180753216783891286}
