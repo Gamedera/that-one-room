@@ -6,7 +6,8 @@ using TMPro;
 public class ObjectDetector : MonoBehaviour
 {
     [SerializeField] private PlayerController playerController;
-    [SerializeField] TextMeshProUGUI interactText;
+    [SerializeField] GameObject interactPanel;
+    //[SerializeField] TextMeshProUGUI interactText;
 
     private List<GameObject> detectedObjects = new List<GameObject>();
 
@@ -33,11 +34,11 @@ public class ObjectDetector : MonoBehaviour
     {
         if (detectedObjects.Count == 0)
         {
-            interactText.gameObject.SetActive(false);
+            interactPanel.SetActive(false);
         }
         else
         {
-            interactText.gameObject.SetActive(true);
+            interactPanel.SetActive(true);
         }
 
         if (detectedObjects.Count == 1)
