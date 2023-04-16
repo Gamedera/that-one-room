@@ -12,6 +12,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float rotationDamping = 10f;
     [SerializeField] private float jumpButtonGracePeriod;
     [SerializeField] private float animationDampTime = 0.05f;
+    [SerializeField] private AudioSource interactSoundEffect;
 
     private Vector2 movementInput;
     private Vector3 movement;
@@ -23,7 +24,7 @@ public class PlayerController : MonoBehaviour
     private Animator animator;
     private Transform mainCameraTransform;
 
-    private void Awake() 
+    private void Awake()
     {
         characterController = GetComponent<CharacterController>();
         animator = GetComponent<Animator>();
@@ -38,7 +39,7 @@ public class PlayerController : MonoBehaviour
         }
 
         movement = CalculatePlayerMovementFromInput();
-        
+
         ApplyGravity();
 
         ApplyRotation();
@@ -129,5 +130,10 @@ public class PlayerController : MonoBehaviour
     private void OnInteract()
     {
         InteractEvent.Invoke();
+    }
+
+    public void PlayInteractSound()
+    {
+        interactSoundEffect.Play();
     }
 }

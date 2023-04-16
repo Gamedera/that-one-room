@@ -13,7 +13,7 @@ public class ObjectDetector : MonoBehaviour
     private int selectedOutlineLayer;
     private int outlineLayer;
 
-    private void OnEnable() 
+    private void OnEnable()
     {
         playerController.InteractEvent += OnInteract;
     }
@@ -23,13 +23,13 @@ public class ObjectDetector : MonoBehaviour
         playerController.InteractEvent -= OnInteract;
     }
 
-    private void Awake() 
+    private void Awake()
     {
         selectedOutlineLayer = LayerMask.NameToLayer("Selected Outline");
         outlineLayer = LayerMask.NameToLayer("Outline");
     }
 
-    private void Update() 
+    private void Update()
     {
         if (detectedObjects.Count == 0)
         {
@@ -43,8 +43,8 @@ public class ObjectDetector : MonoBehaviour
         if (detectedObjects.Count == 1)
         {
             detectedObjects[0].GetComponent<StateChanger>().ChangeToSelectableOutline();
-        } 
-        
+        }
+
         if (detectedObjects.Count > 1)
         {
             GameObject closestObject = GetClosestDetectedObject();
@@ -60,7 +60,7 @@ public class ObjectDetector : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter(Collider other) 
+    private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Interactable"))
         {
@@ -79,7 +79,7 @@ public class ObjectDetector : MonoBehaviour
         }
     }
 
-    private void OnTriggerExit(Collider other) 
+    private void OnTriggerExit(Collider other)
     {
         if (other.gameObject.CompareTag("Interactable"))
         {
@@ -107,6 +107,7 @@ public class ObjectDetector : MonoBehaviour
         GameObject closestObject = GetClosestDetectedObject();
 
         closestObject.GetComponent<StateChanger>().ChangeState();
+        transform.parent.gameObject.GetComponent<PlayerController>().PlayInteractSound();
     }
 
     private GameObject GetClosestDetectedObject()
