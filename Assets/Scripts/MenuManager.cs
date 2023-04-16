@@ -5,7 +5,7 @@ public class MenuManager : MonoBehaviour
 {
     public void StartGame()
     {
-        SceneManager.LoadScene("StartScene");
+        SceneManager.LoadScene("StartSceneMom");
     }
 
     public void RestartGame()
