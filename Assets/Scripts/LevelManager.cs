@@ -59,7 +59,7 @@ public class LevelManager : MonoBehaviour
         }
 
         objectCounterText.text = counter + "/" + numberOfInteractableObjects;
-        slider.value = counter;
+        slider.value =  counter;
 
 
         return counter;
