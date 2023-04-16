@@ -13,8 +13,8 @@ public class MenuManager : MonoBehaviour
         SceneManager.LoadScene("MainMenu");
     }
 
-    public void LoadEndScene()
+    public void LoadEndMenu()
     {
-        SceneManager.LoadScene("EndScene");
+        SceneManager.LoadScene("EndMenu");
     }
 }
