@@ -11955,12 +11955,12 @@ PrefabInstance:
     - target: {fileID: 245579939507632317, guid: c055654c8c78d0c42a6e35e163eee625,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.000000016963787
+      value: -0.000000016963783
       objectReference: {fileID: 0}
     - target: {fileID: 245579939507632317, guid: c055654c8c78d0c42a6e35e163eee625,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.000000002879153
+      value: 0.0000000028791522
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c055654c8c78d0c42a6e35e163eee625, type: 3}
@@ -14932,6 +14932,26 @@ PrefabInstance:
       propertyPath: isClean
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4027528794767222423, guid: dc2d727a60d1e4103b2949f12436c340,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 4.645115
+      objectReference: {fileID: 0}
+    - target: {fileID: 4027528794767222423, guid: dc2d727a60d1e4103b2949f12436c340,
+        type: 3}
+      propertyPath: m_Size.z
+      value: 5.8338623
+      objectReference: {fileID: 0}
+    - target: {fileID: 4027528794767222423, guid: dc2d727a60d1e4103b2949f12436c340,
+        type: 3}
+      propertyPath: m_Center.y
+      value: 8.968439
+      objectReference: {fileID: 0}
+    - target: {fileID: 4027528794767222423, guid: dc2d727a60d1e4103b2949f12436c340,
+        type: 3}
+      propertyPath: m_Center.z
+      value: -16.105934
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dc2d727a60d1e4103b2949f12436c340, type: 3}
 --- !u!1001 &6273496830253089739
@@ -15015,6 +15035,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 657740321}
     m_Modifications:
+    - target: {fileID: 6147981658429727025, guid: 6cf6f5229dd694b6c9d8ed92354254c7,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6147981658961306247, guid: 6cf6f5229dd694b6c9d8ed92354254c7,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6454623016140482044, guid: 6cf6f5229dd694b6c9d8ed92354254c7,
         type: 3}
       propertyPath: isClean
@@ -15024,6 +15054,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Radio
+      objectReference: {fileID: 0}
+    - target: {fileID: 6454623016140482046, guid: 6cf6f5229dd694b6c9d8ed92354254c7,
+        type: 3}
+      propertyPath: m_TagString
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 6454623016140482047, guid: 6cf6f5229dd694b6c9d8ed92354254c7,
         type: 3}
