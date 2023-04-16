@@ -1,27 +1,35 @@
 using UnityEngine;
 
-public class StateChangerImplementation : StateChanger
+public class MotionStateChanger : StateChanger
 {
     [SerializeField] private GameObject cleanObject;
     [SerializeField] private GameObject dirtyObject;
 
-    private Transform cleanLocation;
-    private Transform dirtyLocation;
+    [SerializeField] private GameObject cleanPosition;
+    [SerializeField] private GameObject dirtyPosition;
+
+    private Vector3 cleanTransformPosition;
+    private Vector3 dirtyTransformPosition;
+
 
     private void Start() 
     {
+        cleanTransformPosition = cleanPosition.transform.position;
+        dirtyTransformPosition = dirtyPosition.transform.position;
 
-        cleanLocation = cleanObject.GetComponent<Transform>;
 
         if (isClean)
         {
             cleanObject.SetActive(true);
             dirtyObject.SetActive(false);
+            gameObject.transform.position = cleanTransformPosition;
+
         }
         else
         {
             dirtyObject.SetActive(true);
             cleanObject.SetActive(false);
+            gameObject.transform.position = dirtyTransformPosition;
         }
     }
 
@@ -34,11 +42,13 @@ public class StateChangerImplementation : StateChanger
         {
             cleanObject.SetActive(true);
             dirtyObject.SetActive(false);
+            gameObject.transform.position = cleanTransformPosition;
         }
         else
         {
             dirtyObject.SetActive(true);
             cleanObject.SetActive(false);
+            gameObject.transform.position = dirtyTransformPosition;
         }
     }
 
