@@ -12,7 +12,8 @@ public class LevelManager : MonoBehaviour
     [SerializeField] private float loadSceneDelay = 1f;
     
     [SerializeField] private TextMeshProUGUI timerText;
-    [SerializeField] private TextMeshProUGUI objectCounterText;
+    [SerializeField] private TextMeshProUGUI goodCounterText;
+    [SerializeField] private TextMeshProUGUI evilCounterText;
     [SerializeField] private Slider slider;
     [SerializeField] private PlayerController playerController;
 
@@ -62,7 +63,8 @@ public class LevelManager : MonoBehaviour
             }
         }
 
-        objectCounterText.text = counter + "/" + numberOfInteractableObjects;
+        goodCounterText.text = ""+ counter;
+        evilCounterText.text = ""+ (numberOfInteractableObjects - counter);
         slider.value =  counter;
 
 
